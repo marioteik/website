@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/marioteik/website/controllers"
+	"github.com/marioteik/website/resourses"
 	"net/http"
 	"time"
 
@@ -32,7 +32,7 @@ func (app *application) routes() http.Handler {
 	staticFileServer := http.FileServer(http.Dir("./public"))
 	mux.Handle("/assets/*", http.StripPrefix("/assets/", staticFileServer))
 
-	mux.Mount("/", controllers.LandingPage{}.Routes())
+	mux.Mount("/", resourses.LandingPage{TH: app.templateCache}.Routes())
 
 	return mux
 }

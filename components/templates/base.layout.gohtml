@@ -1,0 +1,27 @@
+{{define "base"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>OpenID Cliqui</title>
+        <link rel="stylesheet" href="/assets/main.css">
+
+        {{block "css" .}}
+        {{end}}
+    </head>
+
+    <body>
+
+    {{block "content" .}}
+    {{end}}
+
+    <script src="https://unpkg.com/htmx.org@1.9.4"
+            integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
+            crossorigin="anonymous"></script>
+    </body>
+
+    {{block "js" .}}
+    {{end}}
+
+    </html>
+{{end}}

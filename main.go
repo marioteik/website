@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"github.com/marioteik/helpers"
 	"github.com/marioteik/website/config"
-	"html/template"
-	"log"
 	"net/http"
 	"time"
 )
@@ -15,54 +13,58 @@ const author = "Mario Teik"
 
 type application struct {
 	env           *config.Env
-	info          *log.Logger
-	error         *log.Logger
+	logger        *config.Logger
 	version       string
 	author        string
-	templateCache map[string]*template.Template
+	templateCache *helpers.TemplateHelper
 	//db       	*gorm.DB
 }
 
 func main() {
-	logger, logError := config.InitLoggers()
+	logger := config.InitLoggers()
 
 	env, err := config.GetEnvironment()
 	if err != nil {
-		logError.Fatal(err)
+		logger.Fatal(err)
 	}
 
-	tc, err := helpers.CreateTemplateCache()
-	if err != nil {
-		logError.Fatal(err)
+	templateHelper := helpers.NewTemplateHelper("./pages", "./components/templates")
+
+	if env.InProduction {
+		err = templateHelper.CreateTemplateCache()
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		templateHelper.UseCache = false
 	}
 
 	app := &application{
 		env:           env,
-		info:          logger,
-		error:         logError,
+		logger:        logger,
 		version:       version,
 		author:        author,
-		templateCache: tc,
+		templateCache: templateHelper,
 		/*db:       config.DB*/
 	}
 
 	err = app.serve()
 	if err != nil {
-		app.error.Println("")
+		app.logger.Fatal(err)
 	}
 }
 
 func (app *application) serve() error {
 	srv := &http.Server{
-		Addr: fmt.Sprintf(":%s", app.env.Port),
-		//Handler:           app.routes(),
+		Addr:              fmt.Sprintf(":%s", app.env.Port),
+		Handler:           app.routes(),
 		IdleTimeout:       30 * time.Second,
 		ReadTimeout:       10 * time.Second,
 		WriteTimeout:      5 * time.Second,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 
-	app.info.Printf("Starting application server on %s", srv.Addr)
+	app.logger.Info(fmt.Sprintf("Starting application server on %s", srv.Addr))
 
 	return srv.ListenAndServe()
 }

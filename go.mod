@@ -3,14 +3,15 @@ module github.com/marioteik/website
 go 1.20
 
 require (
+	github.com/go-chi/chi/v5 v5.0.10
+	github.com/go-chi/cors v1.2.1
 	github.com/joho/godotenv v1.5.1
-	github.com/marioteik/helpers v0.0.0-20230817182525-ce99818a3517
+	github.com/marioteik/helpers v0.0.0-20230824162507-1aaa9e88b88d
+	gorm.io/gorm v1.25.4
 )
 
 require (
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
-	github.com/go-chi/chi/v5 v5.0.10 // indirect
-	github.com/go-chi/cors v1.2.1 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.1 // indirect
@@ -21,5 +22,4 @@ require (
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
-	gorm.io/gorm v1.25.4 // indirect
 )
