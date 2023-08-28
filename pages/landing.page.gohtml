@@ -1,5 +1,42 @@
 {{template "base" .}}
 
 {{define "content"}}
-    <h1 class="text-lg">Landing Page</h1>
+    <main class="scroll-container w-screen h-screen flex flex-row overflow-hidden">
+       <section class="land-section bg-background">
+           {{template "hero" .}}
+       </section>
+        <section class="land-section">
+
+        </section>
+    </main>
+{{end}}
+
+{{ define "js"}}
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+
+            const toIncrement = evt.deltaY > 0 ? window.innerWidth : -window.innerWidth;
+
+            scrollContainer.scroll({
+                left: scrollContainer.scrollLeft + toIncrement,
+                top: 0,
+                behavior: 'smooth'
+            })
+        });
+    </script>
+{{end}}
+
+{{ define "css" }}
+    <style>
+        .land-section {
+            min-width: 100%;
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            padding: 50px;
+        }
+    </style>
 {{end}}

@@ -28,7 +28,8 @@ func main() {
 		logger.Fatal(err)
 	}
 
-	templateHelper := helpers.NewTemplateHelper("./pages", "./components/templates")
+	componentPath := "./components"
+	templateHelper := helpers.NewTemplateHelper("./pages", "./components/templates", &componentPath)
 
 	if env.InProduction {
 		err = templateHelper.CreateTemplateCache()

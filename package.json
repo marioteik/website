@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "tailwindcss-animate": "^1.0.6"
+  },
+  "scripts": {
+    "tailwind:watch": "tailwindcss -i ./assets/main.css -o ./public/main.css --watch"
+  }
+}

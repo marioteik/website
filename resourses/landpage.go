@@ -30,9 +30,7 @@ func (lp LandingPage) Page(w http.ResponseWriter, r *http.Request) {
 	err := lp.TH.RenderTemplate(w, "landing.page.gohtml", nil)
 	if err != nil {
 		log.Println(err)
-		//helpers.ServerError(w, err)
-
-		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		helpers.ServerError(w, err)
 
 		return
 	}

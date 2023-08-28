@@ -28,6 +28,8 @@ github.com/marioteik/helpers v0.0.0-20230824133814-8cccdf99e935 h1:lSIkukEHIdl4G
 github.com/marioteik/helpers v0.0.0-20230824133814-8cccdf99e935/go.mod h1:miL/y0nuJ9ix5mlkoraQS9PS4N53ujtANp+S9u15D2M=
 github.com/marioteik/helpers v0.0.0-20230824162507-1aaa9e88b88d h1:94JB2MRTIITMAco+48yfWb9MPYVCqGxDn+/9N+Mc0Js=
 github.com/marioteik/helpers v0.0.0-20230824162507-1aaa9e88b88d/go.mod h1:miL/y0nuJ9ix5mlkoraQS9PS4N53ujtANp+S9u15D2M=
+github.com/marioteik/helpers v0.0.0-20230826154242-a2bc8ff5d034 h1:sMUjCNUPaRDNK/BLfqOy+PAMv4IpE4ZU3MCEEQUkVkw=
+github.com/marioteik/helpers v0.0.0-20230826154242-a2bc8ff5d034/go.mod h1:miL/y0nuJ9ix5mlkoraQS9PS4N53ujtANp+S9u15D2M=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
