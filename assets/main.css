@@ -82,4 +82,12 @@
     .comfortaa {
         font-family: "Comfortaa", cursive;
     }
+
+    .btn {
+        @apply px-4 py-2 rounded-xl shadow-md;
+    }
+
+    .icon {
+        @apply w-5 h-5;
+    }
 }

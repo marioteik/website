@@ -2,13 +2,17 @@
 
 {{define "content"}}
     <main class="scroll-container w-screen h-screen flex flex-row overflow-hidden">
-       <section class="land-section bg-background">
-           {{template "hero" .}}
-       </section>
+        <section class="land-section bg-background">
+            {{template "hero" .}}
+        </section>
         <section class="land-section">
-
+            {{template "about" .}}
         </section>
     </main>
+
+    <div class="absolute bottom-4 left-12">
+        {{template "contacts" .}}
+    </div>
 {{end}}
 
 {{ define "js"}}
@@ -36,7 +40,7 @@
             width: 100vw;
             height: 100vh;
             scroll-snap-align: start;
-            padding: 50px;
+            padding: 48px;
         }
     </style>
 {{end}}
